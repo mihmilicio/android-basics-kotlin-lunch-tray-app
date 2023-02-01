@@ -74,7 +74,7 @@ class OrderViewModel : ViewModel() {
         }
 
         if (_subtotal.value != null) {
-            _subtotal.value =- previousEntreePrice
+            _subtotal.value = _subtotal.value!!.minus(previousEntreePrice)
         }
 
         _entree.value = menuItems[entree]
@@ -90,7 +90,7 @@ class OrderViewModel : ViewModel() {
         }
 
         if (_subtotal.value != null) {
-            _subtotal.value =- previousSidePrice
+            _subtotal.value = _subtotal.value!!.minus(previousSidePrice)
         }
 
         _side.value = menuItems[side]
@@ -106,7 +106,7 @@ class OrderViewModel : ViewModel() {
         }
 
         if (_subtotal.value != null) {
-            _subtotal.value =- previousAccompanimentPrice
+            _subtotal.value = _subtotal.value!!.minus(previousAccompanimentPrice)
         }
 
         _accompaniment.value = menuItems[accompaniment]
@@ -118,7 +118,7 @@ class OrderViewModel : ViewModel() {
      */
     private fun updateSubtotal(itemPrice: Double) {
         if (_subtotal.value != null) {
-            _subtotal.value =+ itemPrice
+            _subtotal.value = _subtotal.value!!.plus(itemPrice)
         } else {
             _subtotal.value = itemPrice
         }
